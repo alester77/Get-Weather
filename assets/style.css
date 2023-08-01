@@ -1,0 +1,13 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(175, 245, 241);
+}
+header{
+  background-color: aqua;
+  border: 10px solid pink;
+  padding: 50px;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: darkmagenta;
+}
