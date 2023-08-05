@@ -16,18 +16,20 @@
   <body>
     <main>
       <header>Weather By the Day</header>
-      <aside>Search area
-        <input id="city-selection" type="text" placeholder="Search City">
+      <aside>
+        <input id="search-input" type="text" placeholder="Search City"><button id="search-city-btn">Search</button>
+        <button id="clear-storage-btn">Clear</button>
+        <ul id="search-history"></ul>
 
       </aside>
       <article>
         Current Weather
         <div id="current-weather" class="card" style="width: 18rem">
           <div class="card-body">
-            <h5 class="card-title">Place and Date with weather icon</h5>
-            <p id="temp-display" class="card-text">Temp:</p>
-            <p id="wind-display"class="card-text">Wind:</p>
-            <p id="humidity-display" class="card-text">Humidity:</p>
+            <h5 id="current-display" class="card-title"></h5>
+            <p id="temp-display" class="card-text"></p>
+            <p id="wind-display"class="card-text"></p>
+            <p id="humidity-display" class="card-text"></p>
           </div>
         </div>
       </article>
@@ -51,6 +53,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"></script>
     <script src="/assets/script.js"></script>
   </body>
 </html>
