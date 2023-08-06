@@ -145,6 +145,7 @@ function dayForecast(latitude, longitude) {
 
 searchButton.addEventListener('click', function() {
   searchCity();
+  searchInput.value = "";
 });
 
 clearStorageButton.addEventListener('click', function() {
