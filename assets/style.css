@@ -12,6 +12,23 @@ header{
   color: rgb(31, 7, 87);
 }
 
+.input-container{
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+}
+
+.style-search-contents{
+  background-color :rgb(112, 245, 200);
+  border: 2px solid rgb(5, 2, 2);
+  justify-content: left;
+  margin: 5px;
+  font-size: large;
+  padding: 0;
+  text-align: center;
+
+}
+
 .article-container {
   display: flex;
   flex-direction: column;

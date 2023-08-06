@@ -21,6 +21,7 @@ function updateSearchHistoryDisplay() {
   searchHistoryArray.forEach(function(city) {
     var ul = document.createElement("ul");
     ul.textContent = city;
+    ul.classList.add("style-search-contents");
     ul.addEventListener('click', function() {
       searchCity(city);
     });
