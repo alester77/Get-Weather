@@ -8,7 +8,7 @@ To use the weather dashboard one has to open up the website. Here you have to in
 
 
 ## Credits
-Thank you to my DU professor and TAs. Thank you to my fellow students for asking and answering questions. I used the Open Weather API and they had great documentation. MDN and W3Schools was very helpful as well as stackOverflow when I need additional questions answered. 
+Thank you to my DU professor and TAs. Thank you to my fellow students for asking and answering questions. I used the Open Weather API and they had great documentation. MDN and W3Schools was very helpful as well as stackOverflow when I need additional questions answered, particularly when displaying the weather icons as images.  
 
 Deployed Site: https://alester77.github.io/Get-Weather/
 
