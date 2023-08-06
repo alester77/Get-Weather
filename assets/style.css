@@ -3,11 +3,31 @@
   background-color: rgb(175, 245, 241);
 }
 header{
-  background-color: aqua;
-  border: 10px solid pink;
-  padding: 50px;
+  background-color: rgb(112, 245, 200);
+  border: 10px solid rgb(243, 248, 248);
+  padding: 20px;
   text-align: center;
-  font-size: 80px;
+  font-size: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: darkmagenta;
+  color: rgb(31, 7, 87);
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#forecast-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.forecast-day {
+  flex: 1 0 18%;
+  margin: 1%;
+  padding: 10px;
+  border-radius: 10px;
 }

@@ -19,12 +19,12 @@ var searchHistoryArray = JSON.parse(localStorage.getItem("searchHistory")) || []
 function updateSearchHistoryDisplay() {
   searchHistory.innerHTML = ""; // Clear the current search history display
   searchHistoryArray.forEach(function(city) {
-    var li = document.createElement("li");
-    li.textContent = city;
-    li.addEventListener('click', function() {
+    var ul = document.createElement("ul");
+    ul.textContent = city;
+    ul.addEventListener('click', function() {
       searchCity(city);
     });
-    searchHistory.appendChild(li);
+    searchHistory.appendChild(ul);
   });
 }
 
@@ -45,8 +45,10 @@ function searchCity(citySearch) {
     }
   })
   .then(function (data) {
-    console.log(data);
     
+    // clear current icon
+    currentIcon.textContent = "";
+
     // display icon
     var iconUrl = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
     var iconImg = document.createElement('img')
@@ -66,10 +68,78 @@ function searchCity(citySearch) {
       // Update the search history display
       updateSearchHistoryDisplay();
     }
+    dayForecast(data.coord.lat, data.coord.lon);
   })
   .catch(function (error) {
     console.error('There was an issue with fetching the weather data:', error);
   });
+}
+
+
+function dayForecast(latitude, longitude) {
+  var anotherApiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat="+ latitude +"&lon=" + longitude +"&appid=" + apiKey + "&units=imperial";
+  
+
+  fetch(anotherApiUrl)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Error: ' + response.statusText);
+      }
+    })
+    .then(function (data) {
+
+      var forecastData = data.list; 
+
+  // Get only the forecasts for 12:00 each day
+  var noonForecasts = forecastData.filter(function(forecast) {
+    return forecast.dt_txt.includes('12:00:00');
+  });
+
+
+  var forecastContainer = document.getElementById("forecast-container"); // The parent container for the forecasts
+
+  // Clear out the current forecast display
+  forecastContainer.innerHTML = '';
+
+  noonForecasts.forEach(function(forecast, index) {
+    var forecastDayContainer = document.createElement('div');
+    forecastDayContainer.className = 'forecast-day'; 
+
+    // Create an img element for the weather icon
+    var iconUrl = "https://openweathermap.org/img/wn/" + forecast.weather[0].icon + "@2x.png";
+    var iconImg = document.createElement('img');
+    iconImg.src = iconUrl;
+
+    var dateElement = document.createElement('h2');
+    dateElement.textContent = dayjs(forecast.dt_txt).format('M/D/YY');
+
+    var tempElement = document.createElement('p');
+    tempElement.textContent = "Temp: " + forecast.main.temp + "°F";
+
+    var windElement = document.createElement('p');
+    windElement.textContent = "Wind: " + forecast.wind.speed +" mph";
+
+    var humidityElement = document.createElement('p');
+    humidityElement.textContent = "Humidity: " + forecast.main.humidity + "%";
+
+    // Add the elements to the day's container
+    forecastDayContainer.appendChild(dateElement);
+    forecastDayContainer.appendChild(iconImg);
+    forecastDayContainer.appendChild(tempElement);
+    forecastDayContainer.appendChild(windElement);
+    forecastDayContainer.appendChild(humidityElement);
+
+    // Add the day's container to the main forecast container
+    forecastContainer.appendChild(forecastDayContainer);
+  });
+})
+      
+  
+    .catch(function (error) {
+      console.error('There was an issue with fetching the second API data:', error);
+    });
 }
 
 searchButton.addEventListener('click', function() {

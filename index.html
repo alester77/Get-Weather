@@ -15,16 +15,16 @@
   </head>
   <body>
     <main>
-      <header>Weather By the Day</header>
+      <header>Weather Dashboard</header>
       <aside>
         <input id="search-input" type="text" placeholder="Search City"><button id="search-city-btn">Search</button>
         <button id="clear-storage-btn">Clear</button>
         <ul id="search-history"></ul>
-
       </aside>
+
+      <div class = "article-container">
       <article>
-        Current Weather
-        <div id="current-weather" class="card" style="width: 18rem">
+        <div id="current-weather" >
           <div class="card-body">
             <h5 id="current-display" class="card-title"></h5>
             <h4 id="current-icon"></h4>
@@ -34,16 +34,11 @@
           </div>
         </div>
       </article>
-      <article> 5 Day Forecast:
-        <div id="day-one" class="card" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">
-              Weather Icon
-            </h6>
-            <p id="temp-display" class="card-text">Temp:</p>
-            <p id="wind-display"class="card-text">Wind:</p>
-            <p id="humidity-display" class="card-text">Humidity:</p>
+    </div>
+      <article> 
+        <div id="forecast-container" >
+          <div >
+         
           </div>
         </div>
       </article>
